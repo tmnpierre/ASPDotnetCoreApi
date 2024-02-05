@@ -4,7 +4,7 @@ namespace Demo01.Data
 {
     public class CrepeFakeDb
     {
-        public List<Crepe>? Crepes { get; set; } = new List<Crepe>
+        public List<Crepe> Crepes { get; set; } = new List<Crepe>
         {
             new Crepe()
             {
@@ -17,7 +17,7 @@ namespace Demo01.Data
             },
             new Crepe()
             {
-                Id = 1,
+                Id = 2,
                 Name = "Fuit de la mer",
                 IsSalty = true,
                 Diameter = 14,
