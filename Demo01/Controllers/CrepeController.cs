@@ -26,7 +26,7 @@ namespace Demo01.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetByID(int id)
         {
             var crepe = _fakeDb.Crepes.FirstOrDefault(c => c.Id == id);
 
@@ -39,6 +39,6 @@ namespace Demo01.Controllers
         [HttpPost]
         //public IActionResult Post([FromBody]Crepe crepe) { } // 
         //public IActionResult Post([FromForm]Crepe crepe) { } // Si on utilise un formulaire.
-        public IActionResult Post([FromBody] Crepe crepe) { _fakeDb.Crepes.Add(crepe); return CreatedAtAction(nameof(Get), "Crepe ajoutée"); }
+        public IActionResult Post([FromBody] Crepe crepe) { _fakeDb.Crepes.Add(crepe); return CreatedAtAction(nameof(GetByID), new { id = crepe.Id }, "Crepe ajoutée"); }
     }
 }
