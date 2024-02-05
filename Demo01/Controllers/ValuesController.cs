@@ -15,6 +15,9 @@ namespace Demo01.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        [HttpGet("bonjour")]
+        public string DitBonjour(string nom) { return "Bonjour " + nom + " !"; }
+
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
         public string Get(int id)
