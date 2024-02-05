@@ -10,6 +10,6 @@
 
         bool Update (T entity);
 
-        bool Delete (T entity);
+        bool Delete (int id);
     }
 }
