@@ -15,8 +15,16 @@ namespace Demo01.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        [HttpGet("bonjour")]
-        public string DitBonjour(string nom) { return "Bonjour " + nom + " !"; }
+        [HttpGet("bonjour")] // api/Values/bonjour?nom=Guillaume
+        [HttpGet("/bonjour")] // /bonjour?nom=Guillaume
+        [HttpGet("[action]")] // api/Values/DitBonjour?nom=Guillaume
+        [HttpGet("[action]/{nom}")] // api/Values/DitBonjour/Guillaume
+        [HttpGet("[action]/{nom?}")] // nom devient facultatif
+        public string DitBonjour(string? nom)
+        {
+            if (nom == null) return "Pas de nom";
+            else return "Bonjour " + nom + " !";
+        }
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
