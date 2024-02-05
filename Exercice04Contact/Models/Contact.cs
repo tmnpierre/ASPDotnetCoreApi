@@ -29,4 +29,3 @@ namespace Exercice04Contact.Models
 
     public enum Gender { Homme, Femme, Autres }
 }
-

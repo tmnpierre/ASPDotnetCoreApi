@@ -22,7 +22,7 @@ namespace Exercice04Contact.Repositories
         public bool Update(Contact entity)
         {
             var contactFromDb = GetById(entity.Id);
-            if (contactFromDb != null) { return false; }
+            if (contactFromDb == null) { return false; }
 
             _db.Entry(contactFromDb).CurrentValues.SetValues(entity);
             return _db.SaveChanges() > 0;
