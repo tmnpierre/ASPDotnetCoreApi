@@ -10,6 +10,7 @@ namespace Demo01.Data
             {
                 Id = 1,
                 Name = "Surprise du chef",
+                IsSalty = true,
                 Diameter = 14,
                 Topping1 = Topping.Camembert,
                 Topping2 = Topping.MappleJuice,
@@ -18,6 +19,7 @@ namespace Demo01.Data
             {
                 Id = 1,
                 Name = "Fuit de la mer",
+                IsSalty = true,
                 Diameter = 14,
                 Topping1 = Topping.Surimi,
                 Topping2 = Topping.Nutella,

@@ -6,6 +6,8 @@
 
         public string? Name { get; set; }
 
+        public bool IsSalty { get; set; }
+
         public double Diameter { get; set; }
 
         public double Area => Math.PI * Math.Pow(Diameter/2,2);
