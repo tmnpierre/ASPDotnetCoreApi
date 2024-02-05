@@ -15,6 +15,7 @@ namespace Demo01.Controllers
         public IActionResult Get()
         {
             var crepes = _fakeDb.Crepes;
+
             if (crepes.Any())
                 return Ok(crepes);
             //else
@@ -27,10 +28,11 @@ namespace Demo01.Controllers
         public IActionResult Get(int id)
         {
             var crepe = _fakeDb.Crepes.FirstOrDefault(c => c.Id == id);
+
             if (crepe == null)
-                return NotFound();
+                return NotFound(new { Message = "Crepe non trouvée !" });
             else
-                return Ok(crepe);
+                return Ok(new { Message = "Crepe trouvée !", Crepe = crepe }) ;
         }
     }
 }
