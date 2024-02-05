@@ -17,10 +17,20 @@ namespace Demo01.Controllers
             var crepes = _fakeDb.Crepes;
             if (crepes.Any())
                 return Ok(crepes);
+            //else
+            //    return NotFound(); //404 implique que le fait de ne pas trouver de crepes est une erreur.
             else
-                return NotFound(); //404 implique que le fait de ne pas trouver de crepes est une erreur.
-            // else 
-                // return NoContent(); // 204 implique que le fait de ne pas trouver de crepes n'est pas une erreur.
+                return NoContent(); // 204 implique que le fait de ne pas trouver de crepes n'est pas une erreur.
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var crepe = _fakeDb.Crepes.FirstOrDefault(c => c.Id == id);
+            if (crepe == null)
+                return NotFound();
+            else
+                return Ok(crepe);
         }
     }
 }
