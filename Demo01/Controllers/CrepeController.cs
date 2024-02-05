@@ -1,4 +1,5 @@
 ﻿using Demo01.Data;
+using Demo01.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo01.Controllers
@@ -32,7 +33,12 @@ namespace Demo01.Controllers
             if (crepe == null)
                 return NotFound(new { Message = "Crepe non trouvée !" });
             else
-                return Ok(new { Message = "Crepe trouvée !", Crepe = crepe }) ;
+                return Ok(new { Message = "Crepe trouvée !", Crepe = crepe });
         }
+
+        [HttpPost]
+        //public IActionResult Post([FromBody]Crepe crepe) { } // 
+        //public IActionResult Post([FromForm]Crepe crepe) { } // Si on utilise un formulaire.
+        public IActionResult Post([FromBody] Crepe crepe) { _fakeDb.Crepes.Add(crepe); return CreatedAtAction(nameof(Get), "Crepe ajoutée"); }
     }
 }
