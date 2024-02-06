@@ -21,7 +21,7 @@ namespace Exercice04Contact.Front.Models
         public Gender Gender { get; set; }
 
         [Url(ErrorMessage = "L'URL de l'avatar doit être une URL valide.")]
-        public string Avatar { get; set; }
+        public string Avatar { get; set; } = "https://www.betonlandschaften.de/wp-content/uploads/2020/03/avatar_neutral.png";
 
         public string FullName => $"{FirstName} {LastName}";
     }
