@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercices", "Exercices", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice04Contact", "Exercice04Contact\Exercice04Contact.csproj", "{1F12B5E4-D704-4D7C-9E02-77AC7606C625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice04Contact.Front", "Exercice04Contact.Front\Exercice04Contact.Front.csproj", "{B4117BA3-1C93-408C-BB7F-93535B66DCA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercice04Contact.Front", "Exercice04Contact.Front\Exercice04Contact.Front.csproj", "{B4117BA3-1C93-408C-BB7F-93535B66DCA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{454766A4-1550-44AD-A557-D8EFB45B7FBD} = {133B6421-1FAF-44C9-94E7-BF50171F20BD}
 		{1F12B5E4-D704-4D7C-9E02-77AC7606C625} = {682CEAC1-107E-47A1-9744-27C0B3E52977}
+		{B4117BA3-1C93-408C-BB7F-93535B66DCA4} = {682CEAC1-107E-47A1-9744-27C0B3E52977}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B4C73270-B5E5-42AA-B066-B8B4D421CB10}

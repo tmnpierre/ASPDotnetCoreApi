@@ -1,0 +1,48 @@
+﻿@model List<Exercice04Contact.Front.Models.Contact>
+
+@{
+    ViewData["Title"] = "Liste des Contacts";
+}
+
+<div class="container mt-4">
+    <div class="text-center">
+        <h1 class="display-4">Liste des Contacts</h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model[0].Id)</th>
+                <th>@Html.DisplayNameFor(model => model[0].FullName)</th>
+                <th>@Html.DisplayNameFor(model => model[0].DateOfBirth)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Gender)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.FullName</td>
+                    <td>@c.DateOfBirth</td>
+                    <td>@c.Gender</td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Finie</label>
+                        </div>
+
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-controller="Contact" asp-route-id="@c.Id" class="btn btn-primary">Détails</a>
+                        <a asp-action="Edit" asp-controller="Contact" asp-route-id="@c.Id" class="btn btn-warning">Modifier</a>
+                        <form asp-action="Delete" asp-controller="Contact" asp-route-id="@c.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Add" asp-controller="Contact" class="btn btn-primary">Ajouter un Contact</a>
+</div>
