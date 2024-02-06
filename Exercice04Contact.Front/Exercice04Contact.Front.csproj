@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Exercice04Contact\Exercice04Contact.csproj" />
+  </ItemGroup>
+
 </Project>
