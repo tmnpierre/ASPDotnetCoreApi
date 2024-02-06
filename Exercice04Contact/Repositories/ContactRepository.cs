@@ -14,6 +14,8 @@ namespace Exercice04Contact.Repositories
 
         public Contact GetById(int id) { return _db.Contacts.Find(id); }
 
+        public Contact FindByName(string firstName) { return _db.Contacts.FirstOrDefault(c => c.FirstName.ToLower() == firstName.ToLower()); }
+
         public List<Contact> GetAll(string? search = null)
         {
             IQueryable<Contact> query = _db.Contacts;
@@ -21,8 +23,6 @@ namespace Exercice04Contact.Repositories
             if (!string.IsNullOrWhiteSpace(search)) { query = query.Where(c => EF.Functions.Like(c.FirstName, $"%{search}%")); }
             return query.ToList();
         }
-
-        public Contact FindByName(string firstName) { return _db.Contacts.FirstOrDefault(c => c.FirstName.ToLower() == firstName.ToLower()); }
 
         public bool Update(Contact entity)
         {
