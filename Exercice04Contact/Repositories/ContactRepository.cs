@@ -1,5 +1,6 @@
 ﻿using Exercice04Contact.Data;
 using Exercice04Contact.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exercice04Contact.Repositories
 {
@@ -13,7 +14,13 @@ namespace Exercice04Contact.Repositories
 
         public Contact GetById(int id) { return _db.Contacts.Find(id); }
 
-        public List<Contact> GetAll() { return _db.Contacts.ToList(); }
+        public List<Contact> GetAll(string? search = null)
+        {
+            IQueryable<Contact> query = _db.Contacts;
+
+            if (!string.IsNullOrWhiteSpace(search)) { query = query.Where(c => EF.Functions.Like(c.FirstName, $"%{search}%")); }
+            return query.ToList();
+        }
 
         public Contact FindByName(string firstName) { return _db.Contacts.FirstOrDefault(c => c.FirstName.ToLower() == firstName.ToLower()); }
 

@@ -12,7 +12,7 @@ public class ContactsController : ControllerBase
 
     // GET: api/Contacts
     [HttpGet]
-    public IActionResult GetAll() { var contacts = _contactRepository.GetAll(); return Ok(contacts); }
+    public IActionResult GetAll([FromQuery] string? search = null) { var contacts = _contactRepository.GetAll(search); return Ok(contacts); }
 
     // GET: api/Contacts/{id}
     [HttpGet("{id}")]
@@ -25,7 +25,7 @@ public class ContactsController : ControllerBase
     }
 
     // GET: api/Contacts/{firstName}
-    [HttpGet("byname/{firstName}")]
+    [HttpGet("name/{firstName}")]
     public IActionResult GetByFirstName(string firstName)
     {
         var contact = _contactRepository.FindByName(firstName);
