@@ -11,5 +11,6 @@
         bool Update (T entity);
 
         bool Delete (int id);
+        T FindByName(string name);
     }
 }

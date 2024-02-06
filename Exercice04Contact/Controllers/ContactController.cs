@@ -14,7 +14,7 @@ public class ContactsController : ControllerBase
     [HttpGet]
     public IActionResult GetAll() { var contacts = _contactRepository.GetAll(); return Ok(contacts); }
 
-    // GET: api/Contacts/5
+    // GET: api/Contacts/{id}
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
@@ -23,6 +23,17 @@ public class ContactsController : ControllerBase
         if (contact == null) return NotFound("Contact non trouvé.");
         else return Ok(contact);
     }
+
+    // GET: api/Contacts/{firstName}
+    [HttpGet("byname/{firstName}")]
+    public IActionResult GetByFirstName(string firstName)
+    {
+        var contact = _contactRepository.FindByName(firstName);
+
+        if (contact == null) return NotFound("Contact non trouvé.");
+        else return Ok(contact);
+    }
+
 
     // POST: api/Contacts
     [HttpPost]

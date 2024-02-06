@@ -9,22 +9,22 @@ namespace Exercice04Contact.Repositories
 
         public ContactRepository(ApplicationDbContext db) { _db = db; }
 
-        public bool Create(Contact entity)
-        {
-            _db.Contacts.Add(entity);
-            return _db.SaveChanges() > 0;
-        }
+        public bool Create(Contact entity) { _db.Contacts.Add(entity); return _db.SaveChanges() > 0; }
 
         public Contact GetById(int id) { return _db.Contacts.Find(id); }
 
         public List<Contact> GetAll() { return _db.Contacts.ToList(); }
 
+        public Contact FindByName(string firstName) { return _db.Contacts.FirstOrDefault(c => c.FirstName.ToLower() == firstName.ToLower()); }
+
         public bool Update(Contact entity)
         {
             var contactFromDb = GetById(entity.Id);
+            
             if (contactFromDb == null) { return false; }
 
             _db.Entry(contactFromDb).CurrentValues.SetValues(entity);
+            
             return _db.SaveChanges() > 0;
         }
 
@@ -36,7 +36,7 @@ namespace Exercice04Contact.Repositories
                 _db.Contacts.Remove(contact);
                 return _db.SaveChanges() > 0;
             }
-            return false;
+            else return false;
         }
     }
 }
