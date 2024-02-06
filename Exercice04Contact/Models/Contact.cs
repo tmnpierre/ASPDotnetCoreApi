@@ -17,7 +17,7 @@ namespace Exercice04Contact.Models
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        public int Age => DateTime.Today.Year - DateOfBirth.Year - (DateTime.Today.DayOfYear < DateOfBirth.DayOfYear ? 1 : 0);
+        public int Age => DateTime.Today.Year - DateOfBirth.Year - (DateTime.Today.DayOfYear < DateOfBirth.DayOfYear ? 1 : 0); 
 
         public Gender Gender { get; set; }
 
